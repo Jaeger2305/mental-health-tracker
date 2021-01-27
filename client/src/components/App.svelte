@@ -33,7 +33,13 @@
 
 <main>
   <div class="grid">
-    <div class="sidebar"><Sidebar {history} /></div>
+    <div class="sidebar">
+      <Sidebar
+        {history}
+        on:load-burners={({ detail: loadedBurners }) =>
+          (activeBurners = loadedBurners)}
+      />
+    </div>
     <div class="topbar" on:click={saveToHistory}>Save</div>
     <div class="burner1"><Burner bind:burner={activeBurners.exercise} /></div>
     <div class="burner2"><Burner bind:burner={activeBurners.sleep} /></div>
