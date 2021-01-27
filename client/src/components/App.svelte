@@ -1,14 +1,40 @@
 <script lang="ts">
+  import type { BurnerConfig } from "../types";
+
   import Burner from "./Burner.svelte";
   import Sidebar from "./Sidebar.svelte";
 
-  export let name: string;
+  let history: Array<BurnerConfig> = [
+    { exercise: 1, sleep: 7, diet: 5, social: 9, date: new Date() },
+    { exercise: 3, sleep: 5, diet: 4, social: 8, date: new Date() },
+  ];
+
+  let activeBurners = getRandomHistory();
+
+  function getRandomHistory(): BurnerConfig {
+    return {
+      exercise: getRandomScore(),
+      sleep: getRandomScore(),
+      diet: getRandomScore(),
+      social: getRandomScore(),
+      date: new Date(),
+    };
+  }
+
+  function getRandomScore() {
+    return Math.floor(Math.random() * 10) + 1;
+  }
+
+  function saveToHistory() {
+    history = [...history, activeBurners];
+    activeBurners = getRandomHistory();
+  }
 </script>
 
 <main>
   <div class="grid">
-    <div class="sidebar"><Sidebar /></div>
-    <div class="topbar" />
+    <div class="sidebar"><Sidebar {history} /></div>
+    <div class="topbar" on:click={saveToHistory}>Save</div>
     <div class="burner1"><Burner /></div>
     <div class="burner2"><Burner /></div>
     <div class="burner3"><Burner /></div>
