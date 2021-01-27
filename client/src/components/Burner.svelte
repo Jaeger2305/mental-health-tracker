@@ -1,16 +1,29 @@
 <script lang="ts">
   import Slider from "./Slider.svelte";
+
+  export let burner;
 </script>
 
 <main>
-  burner
-  <Slider />
+  <div class="hob"><span>{burner}</span></div>
+  <Slider bind:score={burner} />
 </main>
 
 <style>
   main {
+    display: flex;
+    flex-direction: column;
+  }
+  .hob {
+    display: grid;
+    place-items: center;
     height: 250px;
     width: 250px;
+    font-size: 50px;
+    color: white;
+    text-shadow: 2px 2px 5px black;
+    text-align: center;
+    vertical-align: middle;
     border-radius: 50%;
     background-color: red;
   }

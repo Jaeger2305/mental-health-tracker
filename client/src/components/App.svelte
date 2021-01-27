@@ -35,10 +35,10 @@
   <div class="grid">
     <div class="sidebar"><Sidebar {history} /></div>
     <div class="topbar" on:click={saveToHistory}>Save</div>
-    <div class="burner1"><Burner /></div>
-    <div class="burner2"><Burner /></div>
-    <div class="burner3"><Burner /></div>
-    <div class="burner4"><Burner /></div>
+    <div class="burner1"><Burner bind:burner={activeBurners.exercise} /></div>
+    <div class="burner2"><Burner bind:burner={activeBurners.sleep} /></div>
+    <div class="burner3"><Burner bind:burner={activeBurners.social} /></div>
+    <div class="burner4"><Burner bind:burner={activeBurners.diet} /></div>
     <div class="stats" />
   </div>
 </main>
