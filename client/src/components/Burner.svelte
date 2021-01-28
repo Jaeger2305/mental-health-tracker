@@ -1,14 +1,18 @@
 <script lang="ts">
+  import { tweened } from "svelte/motion";
+  import { cubicOut } from "svelte/easing";
   import Slider from "./Slider.svelte";
 
   export let burner;
   export let burnerType;
 
-  $: color = `hsl(
-    ${burner * 14 - 20},
-						85%,
-						45%
-					)`;
+  const hueTween = tweened(burner, {
+    duration: 2000,
+    easing: cubicOut,
+  });
+
+  $: hueTween.set(burner * 14 - 20);
+  $: color = `hsl(${$hueTween}, 85%, 45%)`;
 </script>
 
 <main>
