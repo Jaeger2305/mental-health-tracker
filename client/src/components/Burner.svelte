@@ -3,11 +3,17 @@
 
   export let burner;
   export let burnerType;
+
+  $: color = `hsl(
+    ${burner * 14 - 20},
+						85%,
+						45%
+					)`;
 </script>
 
 <main>
   <h2>{burnerType}</h2>
-  <div class="hob"><span>{burner}</span></div>
+  <div class="hob" style="--burner-color: {color}"><span>{burner}</span></div>
   <Slider bind:score={burner} />
 </main>
 
@@ -27,6 +33,6 @@
     text-align: center;
     vertical-align: middle;
     border-radius: 50%;
-    background-color: red;
+    background-color: var(--burner-color);
   }
 </style>
