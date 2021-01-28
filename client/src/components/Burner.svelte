@@ -2,9 +2,11 @@
   import Slider from "./Slider.svelte";
 
   export let burner;
+  export let burnerType;
 </script>
 
 <main>
+  <h2>{burnerType}</h2>
   <div class="hob"><span>{burner}</span></div>
   <Slider bind:score={burner} />
 </main>

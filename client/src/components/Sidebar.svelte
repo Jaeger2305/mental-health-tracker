@@ -22,13 +22,27 @@
 <main>
   {#each displayBurners as burnerConfig}
     <div on:click={() => loadConfig(burnerConfig)}>
-      {burnerConfig.exercise +
-        burnerConfig.sleep +
-        burnerConfig.diet +
-        burnerConfig.social}
+      <span>
+        {burnerConfig.exercise +
+          burnerConfig.sleep +
+          burnerConfig.diet +
+          burnerConfig.social}
+      </span>
     </div>
   {/each}
 </main>
 
 <style>
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    justify-items: center;
+  }
+  div {
+    height: 80px;
+    display: flex;
+    align-items: center;
+  }
 </style>

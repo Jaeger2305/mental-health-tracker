@@ -3,6 +3,7 @@
 
   import Burner from "./Burner.svelte";
   import Sidebar from "./Sidebar.svelte";
+  import Topbar from "./Topbar.svelte";
 
   let history: Array<BurnerConfig> = [
     { exercise: 1, sleep: 7, diet: 5, social: 9, date: new Date() },
@@ -31,6 +32,12 @@
   }
 </script>
 
+<svelte:head>
+  <link
+    href="https://fonts.googleapis.com/css?family=Gelasio"
+    rel="stylesheet"
+  />
+</svelte:head>
 <main>
   <div class="grid">
     <div class="sidebar">
@@ -40,16 +47,35 @@
           (activeBurners = loadedBurners)}
       />
     </div>
-    <div class="topbar" on:click={saveToHistory}>Save</div>
-    <div class="burner1"><Burner bind:burner={activeBurners.exercise} /></div>
-    <div class="burner2"><Burner bind:burner={activeBurners.sleep} /></div>
-    <div class="burner3"><Burner bind:burner={activeBurners.social} /></div>
-    <div class="burner4"><Burner bind:burner={activeBurners.diet} /></div>
+    <div class="topbar"><Topbar on:save={saveToHistory} /></div>
+    <div class="burner1">
+      <Burner bind:burner={activeBurners.exercise} burnerType="Exercise" />
+    </div>
+    <div class="burner2">
+      <Burner bind:burner={activeBurners.sleep} burnerType="Sleep" />
+    </div>
+    <div class="burner3">
+      <Burner bind:burner={activeBurners.social} burnerType="Social" />
+    </div>
+    <div class="burner4">
+      <Burner bind:burner={activeBurners.diet} burnerType="Diet" />
+    </div>
     <div class="stats" />
   </div>
 </main>
 
 <style>
+  @font-face {
+    font-family: "Architects Daughter", cursive;
+    src: url("/fonts/ArchitectsDaughter-Regular.ttf") format("ttf");
+  }
+
+  :global(h1) {
+    font-family: "Architects Daughter", cursive;
+  }
+  :global(body) {
+    font-family: "Montserrat", sans-serif;
+  }
   main {
     height: 100vh;
     width: 100vw;
@@ -80,9 +106,7 @@
 
   .sidebar {
     grid-column: 1;
-    grid-row: 1 / span 3;
-    align-self: flex-start;
-    justify-self: center;
+    grid-row: 2 / span 2;
   }
 
   .burner1 {
