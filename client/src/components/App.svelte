@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { v4 } from "uuid";
   import type { BurnerConfig } from "../types";
 
   import Burner from "./Burner.svelte";
@@ -6,14 +7,15 @@
   import Topbar from "./Topbar.svelte";
 
   let history: Array<BurnerConfig> = [
-    { exercise: 1, sleep: 7, diet: 5, social: 9, date: new Date() },
-    { exercise: 3, sleep: 5, diet: 4, social: 8, date: new Date() },
+    { id: v4(), exercise: 1, sleep: 7, diet: 5, social: 9, date: new Date() },
+    { id: v4(), exercise: 3, sleep: 5, diet: 4, social: 8, date: new Date() },
   ];
 
   let activeBurners = getRandomHistory();
 
   function getRandomHistory(): BurnerConfig {
     return {
+      id: v4(),
       exercise: getRandomScore(),
       sleep: getRandomScore(),
       diet: getRandomScore(),
@@ -27,6 +29,12 @@
   }
 
   function saveToHistory() {
+    const existingItemIndex = history.findIndex(
+      ({ id }) => id === activeBurners.id
+    );
+    if (existingItemIndex > -1) {
+      history.splice(existingItemIndex, 1);
+    }
     history = [...history, activeBurners];
     activeBurners = getRandomHistory();
   }
