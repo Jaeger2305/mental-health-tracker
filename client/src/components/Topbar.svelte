@@ -3,10 +3,13 @@
   import { faSave } from "@fortawesome/free-solid-svg-icons/faSave";
   import { createEventDispatcher } from "svelte";
 
+  export let date;
+
   const dispatch = createEventDispatcher<{ save: boolean }>();
 </script>
 
 <main>
+  <h1>{date.toLocaleDateString()}</h1>
   <h1>Mental Health</h1>
   <div on:click={() => dispatch("save", true)}>
     <Icon icon={faSave} on:click={() => dispatch("save", true)} />

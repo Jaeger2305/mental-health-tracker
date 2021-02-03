@@ -47,7 +47,9 @@
           (activeBurners = loadedBurners)}
       />
     </div>
-    <div class="topbar"><Topbar on:save={saveToHistory} /></div>
+    <div class="topbar">
+      <Topbar on:save={saveToHistory} date={activeBurners.date} />
+    </div>
     <div class="burner1">
       <Burner bind:burner={activeBurners.exercise} burnerType="Exercise" />
     </div>
