@@ -4,8 +4,10 @@
   import Splash from "./Splash.svelte";
 
   let isAcknowledged = false;
+  let isLoaded = false;
   onMount(() => {
-    setTimeout(() => (isAcknowledged = true), 1000);
+    isLoaded = true;
+    setTimeout(() => (isAcknowledged = true), 60000);
   });
 </script>
 
@@ -19,8 +21,8 @@
 <main>
   {#if isAcknowledged}
     <Overview />
-  {:else}
-    <Splash />
+  {:else if isLoaded}
+    <Splash on:acknowledge={() => (isAcknowledged = true)} />
   {/if}
 </main>
 
