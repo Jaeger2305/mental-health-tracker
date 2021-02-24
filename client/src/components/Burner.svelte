@@ -80,8 +80,8 @@
   .hob {
     display: grid;
     place-items: center;
-    height: 250px;
-    width: 250px;
+    min-height: 150px;
+    min-width: 150px;
     text-align: center;
     vertical-align: middle;
   }

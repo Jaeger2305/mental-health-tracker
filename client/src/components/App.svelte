@@ -35,11 +35,9 @@
     text-align: center;
   }
   main {
-    height: 100vh;
-    width: 100vw;
     padding: 0px;
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
   }
 </style>

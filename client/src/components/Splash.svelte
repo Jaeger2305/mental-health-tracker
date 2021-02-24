@@ -9,12 +9,12 @@
     dispatch("acknowledge", true);
   }
 
-  const animationModifier = 2;
+  const animationModifier = 0.2;
 </script>
 
 <main>
   <h1 in:fly={{ duration: 2000, x: -200 }}>
-    <img src="images/logo.svg" alt="Mental health header" height="150rem" />
+    <img src="images/logo.svg" alt="Mental health header" />
   </h1>
   <p in:fade={{ duration: 2000, delay: animationModifier * 1000 }}>
     It's one of those things that always sneaks up on me. I get busy with work,
@@ -76,10 +76,13 @@
 </main>
 
 <style>
+  h1 img {
+    width: 80%;
+  }
   main {
-    min-width: 250px;
+    min-width: 230px;
     max-width: 800px;
-    width: 80vw;
-    margin: 5vw;
+    width: 75%;
+    margin-bottom: 5%;
   }
 </style>

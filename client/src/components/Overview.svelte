@@ -84,46 +84,57 @@
   .grid {
     width: 100%;
     height: 100%;
-    max-width: 800px;
-    max-height: 800px;
     display: grid;
-    place-items: center;
-    grid-template-columns: 90px auto;
-    grid-template-rows: 40px auto auto 60px;
-    column-gap: 5%;
-    row-gap: 5%;
+    place-items: stretch;
+    grid-template-columns: 80px 1fr 1fr;
+    grid-template-rows: 140px 1fr 1fr 60px;
+    grid-template-areas:
+      "topbar topbar topbar"
+      "sidebar burner1 burner2"
+      "sidebar burner3 burner4"
+      "stats stats stats";
+    column-gap: 4%;
+    row-gap: 4%;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .grid {
+      grid-template-columns: 80px 1fr;
+      grid-template-rows: 140px 1fr 1fr 1fr 1fr 60px;
+      grid-template-areas:
+        "topbar topbar"
+        "sidebar  burner1"
+        "sidebar  burner2"
+        "sidebar  burner3"
+        "sidebar  burner4"
+        "stats stats";
+    }
   }
 
   .topbar {
-    grid-column: 1 / span 3;
-    grid-row: 1;
+    grid-area: topbar;
     align-self: center;
     justify-self: flex-end;
   }
 
   .sidebar {
-    grid-column: 1;
-    grid-row: 2 / span 2;
+    grid-area: sidebar;
+    place-self: center;
   }
 
   .burner1 {
-    grid-column: 2;
-    grid-row: 2;
+    grid-area: burner1;
   }
   .burner2 {
-    grid-column: 3;
-    grid-row: 2;
+    grid-area: burner2;
   }
   .burner3 {
-    grid-column: 2;
-    grid-row: 3;
+    grid-area: burner3;
   }
   .burner4 {
-    grid-column: 3;
-    grid-row: 3;
+    grid-area: burner4;
   }
   .stats {
-    grid-column: 1 / span 3;
-    grid-row: 4;
+    grid-area: stats;
   }
 </style>
