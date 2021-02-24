@@ -7,10 +7,17 @@
   import Sidebar from "./Sidebar.svelte";
   import Topbar from "./Topbar.svelte";
 
-  let history: Array<BurnerConfig> = [
-    { id: v4(), exercise: 1, sleep: 7, diet: 5, social: 9, date: new Date() },
-    { id: v4(), exercise: 3, sleep: 5, diet: 4, social: 8, date: new Date() },
-  ];
+  function deserialiseBurnerConfig(
+    serialisedBurnerConfig: string
+  ): BurnerConfig {
+    const burnerConfig = JSON.parse(serialisedBurnerConfig);
+    burnerConfig.date = new Date(burnerConfig.date);
+    return burnerConfig;
+  }
+
+  let history: Array<BurnerConfig> = Object.entries(localStorage)
+    .filter(([key]) => key.substring(0, 8) == "burners-")
+    .map(([, value]) => deserialiseBurnerConfig(value));
 
   let activeBurners = getRandomHistory();
 
@@ -30,6 +37,10 @@
   }
 
   function saveToHistory() {
+    window.localStorage.setItem(
+      `burners-${activeBurners.id}`,
+      JSON.stringify(activeBurners)
+    );
     const existingItemIndex = history.findIndex(
       ({ id }) => id === activeBurners.id
     );
