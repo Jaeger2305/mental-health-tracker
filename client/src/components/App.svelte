@@ -11,13 +11,6 @@
   });
 </script>
 
-<svelte:head>
-  <link
-    href="https://fonts.googleapis.com/css?family=Gelasio"
-    rel="stylesheet"
-  />
-</svelte:head>
-
 <main>
   {#if isAcknowledged}
     <Overview />
