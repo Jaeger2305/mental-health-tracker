@@ -10,9 +10,11 @@
 
 <main>
   <h1>{date.toLocaleDateString()}</h1>
-  <h1>Mental Health</h1>
+  <h1>
+    <img src="images/logo.svg" alt="Mental health header" height="75rem" />
+  </h1>
   <div on:click={() => dispatch("save", true)}>
-    <Icon icon={faSave} on:click={() => dispatch("save", true)} />
+    <img src="images/lock.svg" height="100" alt="save-icon" />
   </div>
 </main>
 

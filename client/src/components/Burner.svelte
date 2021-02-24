@@ -54,7 +54,6 @@
 </script>
 
 <main>
-  <h2>{burnerType}</h2>
   <div class="hob" style="--burner-color: {color}">
     <svg viewBox="0 0 100 100" class="hob-outline">
       <g>
@@ -68,6 +67,7 @@
       </g>
     </svg>
     <span>{burner}</span>
+    <img src="images/{burnerType}.svg" alt={burnerType} class="burner-icon" />
   </div>
   <Slider bind:score={burner} />
 </main>
@@ -100,5 +100,12 @@
     grid-column: 1 /1;
     grid-row: 1 /1;
     height: 100%;
+  }
+
+  .burner-icon {
+    height: 5rem;
+    grid-column: 1 /1;
+    grid-row: 1 /1;
+    place-self: end;
   }
 </style>

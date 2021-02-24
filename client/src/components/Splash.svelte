@@ -13,7 +13,9 @@
 </script>
 
 <main>
-  <h1 in:fly={{ duration: 2000, x: -200 }}>Mental health</h1>
+  <h1 in:fly={{ duration: 2000, x: -200 }}>
+    <img src="images/logo.svg" alt="Mental health header" height="150rem" />
+  </h1>
   <p in:fade={{ duration: 2000, delay: animationModifier * 1000 }}>
     It's one of those things that always sneaks up on me. I get busy with work,
     a personal goal lags behind, that special someone isn't texting back. Then
