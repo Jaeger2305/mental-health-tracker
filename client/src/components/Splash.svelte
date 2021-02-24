@@ -40,20 +40,24 @@
     others.
   </p>
   <p in:fade={{ duration: 2000, delay: animationModifier * 15000 }}>
-    <strong>Exercise</strong>: Did you exercise an hour each day?
+    <img src="images/exercise.svg" alt="diet-icon" height="20" />
+    <strong> Exercise</strong>: Did you exercise an hour each day?
   </p>
   <p in:fade={{ duration: 2000, delay: animationModifier * 15500 }}>
-    <strong>Sleep</strong>: Are you getting your 8 hours? What time did you
+    <img src="images/sleep.svg" alt="diet-icon" height="20" />
+    <strong> Sleep</strong>: Are you getting your 8 hours? What time did you
     sleep? Are you exhausted going into bed?
   </p>
   <p in:fade={{ duration: 2000, delay: animationModifier * 16000 }}>
-    <strong>Social</strong>: Did you reach out to any old friends? Make any new
+    <img src="images/social.svg" alt="diet-icon" height="20" />
+    <strong> Social</strong>: Did you reach out to any old friends? Make any new
     ones? Did you start a conversation when you didn't need to? Did you avoid
     anyone?
   </p>
   <p in:fade={{ duration: 2000, delay: animationModifier * 16500 }}>
-    <strong>Diet</strong>: How much did you cook? Was your food healthy? Did you
-    enjoy cooking?
+    <img src="images/diet.svg" alt="diet-icon" height="20" />
+    <strong> Diet</strong>: How much did you cook? Was your food healthy? Did
+    you enjoy cooking?
   </p>
   <h2 in:fly={{ duration: 2000, delay: animationModifier * 19000, x: -200 }}>
     This app
