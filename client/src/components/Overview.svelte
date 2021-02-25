@@ -65,16 +65,16 @@
       <Topbar on:save={saveToHistory} date={activeBurners.date} />
     </div>
     <div class="burner1" transition:fade={{ duration: 1000 }}>
-      <Burner bind:burner={activeBurners.exercise} burnerType="Exercise" />
+      <Burner bind:burner={activeBurners.exercise} burnerType="exercise" />
     </div>
     <div class="burner2" transition:fade={{ duration: 1000, delay: 500 }}>
-      <Burner bind:burner={activeBurners.sleep} burnerType="Sleep" />
+      <Burner bind:burner={activeBurners.sleep} burnerType="sleep" />
     </div>
     <div class="burner3" transition:fade={{ duration: 1000, delay: 1000 }}>
-      <Burner bind:burner={activeBurners.social} burnerType="Social" />
+      <Burner bind:burner={activeBurners.social} burnerType="social" />
     </div>
     <div class="burner4" transition:fade={{ duration: 1000, delay: 1500 }}>
-      <Burner bind:burner={activeBurners.diet} burnerType="Diet" />
+      <Burner bind:burner={activeBurners.diet} burnerType="diet" />
     </div>
     <div class="stats" />
   </div>
@@ -82,8 +82,6 @@
 
 <style>
   .grid {
-    width: 100%;
-    height: 100%;
     display: grid;
     place-items: stretch;
     grid-template-columns: 80px 1fr 1fr;

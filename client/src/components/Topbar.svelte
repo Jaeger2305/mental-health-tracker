@@ -9,10 +9,10 @@
 <main>
   <h1>{date.toLocaleDateString()}</h1>
   <div>
-    <img src="images/logo.svg" alt="Mental health header" class="logo" />
+    <img src="/images/logo.svg" alt="Mental health header" class="logo" />
   </div>
   <div on:click={() => dispatch("save", true)}>
-    <img src="images/lock.svg" height="100" alt="save-icon" />
+    <img src="/images/lock.svg" height="100" alt="save-icon" />
   </div>
 </main>
 

@@ -67,7 +67,7 @@
       </g>
     </svg>
     <span>{burner}</span>
-    <img src="images/{burnerType}.svg" alt={burnerType} class="burner-icon" />
+    <img src="/images/{burnerType}.svg" alt={burnerType} class="burner-icon" />
   </div>
   <Slider bind:score={burner} />
 </main>
